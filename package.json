@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-random-avatar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make users extraordinary",
   "main": "library.js",
   "repository": {
@@ -24,6 +24,5 @@
   "nbbpm": {
     "compatibility": "^1.12.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
