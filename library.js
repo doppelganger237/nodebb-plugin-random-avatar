@@ -16,6 +16,8 @@ plugin.usersGet = function(users, callback) {
         var avatar = avatarCache[userObj.uid]
         if (avatar) {
           userObj.picture = avatar
+        }else{
+          userObj.picture =avatarCache[userObj.uid]= getRandomAvatar()
         }
 
         next(null, userObj)
