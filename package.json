@@ -24,5 +24,7 @@
   "nbbpm": {
     "compatibility": "^1.12.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "node-cache":"^5.1.0"
+  }
 }

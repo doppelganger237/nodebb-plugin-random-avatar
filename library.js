@@ -1,8 +1,9 @@
 'use strict'
 
 var async = require('async'),
+  cache = require('node-cache'),
   plugin = {},
-  avatarCache = {}
+  avatarCache = new cache({ stdTTL: 1800, checkperiod: 600 })
 
 plugin.usersGet = function(users, callback) {
   async.map(
@@ -13,11 +14,13 @@ plugin.usersGet = function(users, callback) {
       }
 
       if (userObj.picture === null || userObj.picture === '') {
-        var avatar = avatarCache[userObj.uid]
+        var avatar = avatarCache.get(userObj.uid)
         if (avatar) {
           userObj.picture = avatar
-        }else{
-          userObj.picture =avatarCache[userObj.uid]= getRandomAvatar()
+        } else {
+          var ava = getRandomAvatar()
+          avatarCache.set(userObj.uid, ava)
+          userObj.picture = ava
         }
 
         next(null, userObj)
@@ -40,15 +43,9 @@ function getRandomAvatar($) {
   return avatarsrc
 }
 
-plugin.buildHeader = function(data,callback) {
-
-
-    avatarCache[data.req.uid] = getGravatarUrl()
-
-    callback(null, data);
-  
-
-  
+plugin.buildHeader = function(data, callback) {
+  avatarCache.set(data.req.uid, getGravatarUrl())
+  callback(null, data)
 }
 
 module.exports = plugin
