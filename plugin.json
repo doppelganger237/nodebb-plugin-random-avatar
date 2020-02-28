@@ -1,0 +1,14 @@
+{
+	"id": "nodebb-plugin-random-avatar",
+	"url": "https://github.com/BrokenPaper/nodebb-random-avatar",
+	"library": "./library.js",
+	"hooks": [
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "filter:users.get", "method": "usersGet" },
+		{"hook":"filter:middleware.buildHeader","method":"buildHeader"}
+	],
+	"templates": "static/templates",
+	"acpScripts": [
+		"static/lib/admin.js"
+	]
+}
