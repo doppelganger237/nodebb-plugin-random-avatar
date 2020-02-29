@@ -5,12 +5,12 @@
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BrokenPaper/nodebb-random-avatar"
+    "url": "https://github.com/BrokenPaper/nodebb-plugin-random-avatar"
   },
   "keywords": [
     "nodebb",
     "plugin",
-    "gravatar"
+    "random-avatar"
   ],
   "author": {
     "name": "BrokenPaper",
@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/julianlam/nodebb-random-avatar/issues"
+    "url": "https://github.com/BrokenPaper/nodebb-plugin-random-avatar/issues"
   },
   "readmeFilename": "README.md",
   "nbbpm": {
